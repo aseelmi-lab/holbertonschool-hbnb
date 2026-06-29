@@ -7,7 +7,7 @@ This document contains the UML diagrams for the HBnB application Business Logic 
 
 ## Task 1 - Class Diagram
 
-\`\`\`mermaid
+```mermaid
 classDiagram
   class BaseModel {
     +UUID4 id
@@ -68,13 +68,13 @@ classDiagram
   User "1" --> "0..*" Review : writes
   Place "1" --> "0..*" Review : has
   Place "0..*" --> "0..*" Amenity : includes
-\`\`\`
+```
 
 ---
 
 ## Task 2 - Package Diagram
 
-\`\`\`mermaid
+```mermaid
 graph TD
   subgraph Presentation["Presentation Layer"]
     API[REST API Endpoints]
@@ -92,7 +92,7 @@ graph TD
   end
   Presentation --> Business
   Business --> Persistence
-\`\`\`
+```
 
 ---
 
@@ -100,7 +100,7 @@ graph TD
 
 ### 3.1 User Registration
 
-\`\`\`mermaid
+```mermaid
 sequenceDiagram
   actor User
   participant API
@@ -114,11 +114,11 @@ sequenceDiagram
   DB-->>UserModel: success
   UserModel-->>API: user_object
   API-->>User: 201 Created
-\`\`\`
+```
 
 ### 3.2 Place Creation
 
-\`\`\`mermaid
+```mermaid
 sequenceDiagram
   actor Host
   participant API
@@ -132,11 +132,11 @@ sequenceDiagram
   DB-->>PlaceModel: success
   PlaceModel-->>API: place_object
   API-->>Host: 201 Created
-\`\`\`
+```
 
 ### 3.3 Review Submission
 
-\`\`\`mermaid
+```mermaid
 sequenceDiagram
   actor Guest
   participant API
@@ -150,11 +150,11 @@ sequenceDiagram
   DB-->>ReviewModel: success
   ReviewModel-->>API: review_object
   API-->>Guest: 201 Created
-\`\`\`
+```
 
 ### 3.4 Fetching List of Places
 
-\`\`\`mermaid
+```mermaid
 sequenceDiagram
   actor User
   participant API
@@ -166,7 +166,7 @@ sequenceDiagram
   DB-->>PlaceModel: places_list
   PlaceModel-->>API: places_objects
   API-->>User: 200 OK + JSON list
-\`\`\`
+```
 
 ---
 
